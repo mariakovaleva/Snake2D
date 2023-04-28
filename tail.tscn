@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyeylv0qs665t"]
+
+[ext_resource type="Texture2D" uid="uid://dwmx8c37ceqt4" path="res://vecteezy_cherry_Chatra_Ardhisuryo_no_stem.png" id="1_dutou"]
+[ext_resource type="Script" path="res://tail.gd" id="1_xros0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_neo76"]
+radius = 8.0
+height = 20.0
+
+[node name="Tail" type="Area2D"]
+script = ExtResource("1_xros0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_dutou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_neo76")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
